@@ -13,43 +13,43 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>14</maven.compiler.source>
         <maven.compiler.target>14</maven.compiler.target>
-        <db.url>jdbc:postgresql://127.0.0.1:5432/grabber</db.url>
-        <db.username>postgres</db.username>
-        <db.password>password</db.password>
-        <db.driver>org.postgresql.Driver</db.driver>
+<!--        <db.url>jdbc:postgresql://127.0.0.1:5432/grabber</db.url>-->
+<!--        <db.username>postgres</db.username>-->
+<!--        <db.password>password</db.password>-->
+<!--        <db.driver>org.postgresql.Driver</db.driver>-->
     </properties>
 
     <profiles>
-        <profile>
-            <id>test</id>
-            <properties>
-                <db.url>jdbc:postgresql://127.0.0.1:5432/grabbertest</db.url>
-                <db.username>postgres</db.username>
-                <db.password>password</db.password>
-                <db.driver>org.postgresql.Driver</db.driver>
-            </properties>
-        </profile>
-        <profile>
-            <id>production</id>
-            <properties>
-                <db.url>jdbc:postgresql://127.0.0.1:5432/grabber</db.url>
-                <db.username>postgres</db.username>
-                <db.password>password</db.password>
-                <db.driver>org.postgresql.Driver</db.driver>
-            </properties>
-        </profile>
-        <profile>
-            <id>travis</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <db.url>jdbc:postgresql://localhost/grabbertest</db.url>
-                <db.username>postgres</db.username>
-                <db.password></db.password>
-                <db.driver>org.postgresql.Driver</db.driver>
-            </properties>
-        </profile>
+<!--        <profile>-->
+<!--            <id>test</id>-->
+<!--            <properties>-->
+<!--                <db.url>jdbc:postgresql://127.0.0.1:5432/grabbertest</db.url>-->
+<!--                <db.username>postgres</db.username>-->
+<!--                <db.password>password</db.password>-->
+<!--                <db.driver>org.postgresql.Driver</db.driver>-->
+<!--            </properties>-->
+<!--        </profile>-->
+<!--        <profile>-->
+<!--            <id>production</id>-->
+<!--            <properties>-->
+<!--                <db.url>jdbc:postgresql://127.0.0.1:5432/grabber</db.url>-->
+<!--                <db.username>postgres</db.username>-->
+<!--                <db.password>password</db.password>-->
+<!--                <db.driver>org.postgresql.Driver</db.driver>-->
+<!--            </properties>-->
+<!--        </profile>-->
+<!--        <profile>-->
+<!--            <id>travis</id>-->
+<!--            <activation>-->
+<!--                <activeByDefault>true</activeByDefault>-->
+<!--            </activation>-->
+<!--            <properties>-->
+<!--                <db.url>jdbc:postgresql://localhost/grabbertest</db.url>-->
+<!--                <db.username>postgres</db.username>-->
+<!--                <db.password></db.password>-->
+<!--                <db.driver>org.postgresql.Driver</db.driver>-->
+<!--            </properties>-->
+<!--        </profile>-->
     </profiles>
 
     <dependencies>
@@ -82,26 +82,26 @@
     </dependencies>
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-maven-plugin</artifactId>
-                <version>3.6.2</version>
-                <configuration>
-                    <changeLogFile>${basedir}/db/master.xml</changeLogFile>
-                    <url>${db.url}</url>
-                    <driver>${db.driver}</driver>
-                    <username>${db.username}</username>
-                    <password>${db.password}</password>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>update</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.liquibase</groupId>-->
+<!--                <artifactId>liquibase-maven-plugin</artifactId>-->
+<!--                <version>3.6.2</version>-->
+<!--                <configuration>-->
+<!--                    <changeLogFile>${basedir}/db/master.xml</changeLogFile>-->
+<!--                    <url>${db.url}</url>-->
+<!--                    <driver>${db.driver}</driver>-->
+<!--                    <username>${db.username}</username>-->
+<!--                    <password>${db.password}</password>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>process-resources</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>update</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -126,7 +126,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.5</version>
+                <version>0.8.6</version>
                 <executions>
                     <execution>
                         <goals>
